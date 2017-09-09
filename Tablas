@@ -2,26 +2,25 @@
 CREATE TABLE `competencias_esp` (
   `ID_PROGRAMA` int(11) NOT NULL,
   `COMPETENCIAS_ESPECIFICAS` varchar(45) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+)
+ALTER TABLE `competencias_esp`
+  ADD PRIMARY KEY (`ID_PROGRAMA`,`COMPETENCIAS_ESPECIFICAS`);
 
-WENA MEN
+
 CREATE TABLE `competencias_trans` (
   `ID_PROGRAMA` int(11) NOT NULL,
   `OBJETIVOS` varchar(45) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
+)
 
 CREATE TABLE `convalidacion` (
   `ID_PAGO` int(11) NOT NULL,
   `ID_CONVALIDACION` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
+)
 
 CREATE TABLE `empresas` (
   `ID_PRO` int(11) NOT NULL,
   `ID_EMPRESA` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
+)
 
 CREATE TABLE `encuesta` (
   `ID_ENCUESTA` int(11) NOT NULL,
@@ -29,15 +28,13 @@ CREATE TABLE `encuesta` (
   `ID_PROGRAMA(PK)` int(11) NOT NULL,
   `MAS_RESCATABLE IF NOT EXISTS` varchar(200) NOT NULL,
   `MENOS_RESCATABLE IF NOT EXISTS` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
+)
 
 CREATE TABLE `estudiantes` (
   `ID_ESTUDIANTE` int(11) NOT NULL,
   `NOMBRE` varchar(45) NOT NULL,
   `BANEADO` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
+)
 
 CREATE TABLE `estudiantes_cursan` (
   `ID_ESTUDIANTE` int(11) NOT NULL,
@@ -47,74 +44,59 @@ CREATE TABLE `estudiantes_cursan` (
   `ASISTENCIA` int(11) NOT NULL,
   `NOTAS` int(11) NOT NULL,
   `aceptado` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
+)
 
 CREATE TABLE `estudiantes_proponentes` (
   `ID_EPRO` int(11) NOT NULL,
   `ID_PRO` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-
-INSERT INTO `estudiantes_proponentes` (`ID_EPRO`, `ID_PRO`) VALUES
-(0, 0);
+)
 
 
 CREATE TABLE `exalumnos` (
   `ID_PRO` int(11) NOT NULL,
   `ID_EXALUMNO` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-
+)
 CREATE TABLE `horas_semanales` (
   `CREDITOS` int(11) NOT NULL,
   `HORAS` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
+)
 
 CREATE TABLE `info_sesion` (
   `N_SESION` int(11) NOT NULL,
   `NOMBRE_SESION` varchar(45) NOT NULL,
   `ACTIVIDAD` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
+)
 
 CREATE TABLE `metodologia` (
   `ID_PROGRAMA` int(11) NOT NULL,
   `METODOLOGIA` varchar(45) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
+)
 
 CREATE TABLE `monetario` (
   `ID_PAGO` int(11) NOT NULL,
   `ID_MONETARIO` int(11) NOT NULL,
   `MONTO` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
+)
 
 CREATE TABLE `objetivos` (
   `ID_PROGRAMA` int(11) NOT NULL,
   `OBJETIVO` varchar(45) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
+)
 
 CREATE TABLE `pago` (
   `ID_PAGO` int(11) NOT NULL,
   `ID_EPRO` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
+)
 
 CREATE TABLE `prereq` (
   `ID_PROGRAMA` int(11) NOT NULL,
   `PREREQUISITOS` varchar(45) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
+)
 
 CREATE TABLE `profesores` (
   `ID_PRO` int(11) NOT NULL,
   `ID_PROFESOR` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
+)
 
 CREATE TABLE `programa` (
   `ID_PROGRAMA` int(11) NOT NULL,
@@ -127,26 +109,21 @@ CREATE TABLE `programa` (
   `DESCRIPCION` varchar(200) NOT NULL,
   `P_ASISTENCIA` int(11) NOT NULL,
   `NOTA_FINAL` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
+)
 
 CREATE TABLE `proponente` (
   `ID_PRO` int(11) NOT NULL,
   `NAME` varchar(45) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
+)
 
 CREATE TABLE `req_ent` (
   `ID_PROGRAMA` int(11) NOT NULL,
   `REQUISITOS_ENTRADA` varchar(45) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-
+)
 CREATE TABLE `sesion` (
   `ID_PROGRAMA` int(11) NOT NULL,
   `N_SESION` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
+)
 
 CREATE TABLE `taller_libre` (
   `ID_EPRO` int(11) NOT NULL,
@@ -158,35 +135,17 @@ CREATE TABLE `taller_libre` (
   `MOTIVO` varchar(200) NOT NULL,
   `PROFESOR` varchar(45) NOT NULL,
   `NAME` varchar(45) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-
-INSERT INTO `taller_libre` (`ID_EPRO`, `ID_TALLER`, `SEMESTRE`, `ID_PROGRAMA`, `INSCRITOS`, `ESTADO`, `MOTIVO`, `PROFESOR`, `NAME`) VALUES
-(111111111, 22, 12014, 22, 0, 0, 'Aun no evaluado', 'Gonzalo', 'Como encontrar una Pera en la USM'),
-(111111111, 123, 12014, 123, 0, 1, 'Aun no evaluado', 'Gonzalo', 'Taller de suicido colectivo'),
-(111111111, 4123, 12017, 4123, 0, 1, 'Aun no evaluado', 'Gonzalo', 'Como Tomarte la U sin que tu madre se entere'),
-(111111111, 41234123, 12017, 41234123, 0, 0, 'Aun no evaluado', 'Gonzalo', 'Paperas con Mendoza');
-
-
-
+)
 CREATE TABLE `usuarios` (
   `id_usuario` int(11) NOT NULL,
   `id_estudiante` int(11) NOT NULL,
   `privilegio` int(11) NOT NULL,
   `nombre` varchar(200) NOT NULL,
   `password` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Tabla con usuarios';
+)
 
 
-INSERT INTO `usuarios` (`id_usuario`, `id_estudiante`, `privilegio`, `nombre`, `password`) VALUES
-(111111111, 111111111, 0, 'Gonzalo', '111111111'),
-(121212121, 121212121, 1, 'Marti', '121212121'),
-(222222222, 222222222, 0, 'Paltiman', '222222222'),
-(333333333, 333333333, 0, 'Alfonso', '333333333');
 
-
-ALTER TABLE `competencias_esp`
-  ADD PRIMARY KEY (`ID_PROGRAMA`,`COMPETENCIAS_ESPECIFICAS`);
 
 ALTER TABLE `competencias_trans`
   ADD PRIMARY KEY (`ID_PROGRAMA`,`OBJETIVOS`);
