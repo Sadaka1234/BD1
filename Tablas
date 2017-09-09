@@ -6,6 +6,7 @@ CREATE TABLE `competencias_esp` (
 ALTER TABLE `competencias_esp`
   ADD PRIMARY KEY (`ID_PROGRAMA`,`COMPETENCIAS_ESPECIFICAS`);
 
+
 CREATE TABLE `competencias_trans` (
   `ID_PROGRAMA` int(11) NOT NULL,
   `OBJETIVOS` varchar(45) NOT NULL
