@@ -5,7 +5,7 @@ CREATE TABLE `competencias_esp` (
 )
 ALTER TABLE `competencias_esp`
   ADD PRIMARY KEY (`ID_PROGRAMA`,`COMPETENCIAS_ESPECIFICAS`);
-
+ALTER TABLE ALGO;
 
 CREATE TABLE `competencias_trans` (
   `ID_PROGRAMA` int(11) NOT NULL,
